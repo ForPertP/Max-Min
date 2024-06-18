@@ -1,6 +1,6 @@
 int maxMin(int k, vector<int> arr) 
 {
-    std::sort(arr.begin(),arr.end());
+    std::sort(arr.begin(), arr.end());
     int n = arr.size();
     int minUnfairness = INT_MAX;
     
