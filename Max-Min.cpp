@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+
+/*
+ * Complete the 'maxMin' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER k
+ *  2. INTEGER_ARRAY arr
+ */
+
 int maxMin(int k, vector<int> arr) 
 {
     std::sort(arr.begin(), arr.end());
