@@ -14,19 +14,44 @@ string rtrim(const string &);
  *  2. INTEGER_ARRAY arr
  */
 
-int maxMin(int k, vector<int> arr) 
+int maxMin(int k, vector<int> arr)
 {
-    std::sort(arr.begin(), arr.end());
-    int n = arr.size();
     int minUnfairness = INT_MAX;
     
-    for (int i = 0; i <= n-k; ++i)
-    {
-        if ((arr[i+k-1]-arr[i]) < minUnfairness)
-        {
-            minUnfairness = arr[i+k-1] - arr[i];
-        }
-    }
-    
     return minUnfairness;
+}
+
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string n_temp;
+    getline(cin, n_temp);
+
+    int n = stoi(ltrim(rtrim(n_temp)));
+
+    string k_temp;
+    getline(cin, k_temp);
+
+    int k = stoi(ltrim(rtrim(k_temp)));
+
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++) {
+        string arr_item_temp;
+        getline(cin, arr_item_temp);
+
+        int arr_item = stoi(ltrim(rtrim(arr_item_temp)));
+
+        arr[i] = arr_item;
+    }
+
+    int result = maxMin(k, arr);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
 }
