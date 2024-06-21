@@ -16,7 +16,18 @@ string rtrim(const string &);
 
 int maxMin(int k, vector<int> arr)
 {
+    std::sort(arr.begin(), arr.end());
+    int n = arr.size();
     int minUnfairness = INT_MAX;
+    
+    for (int i = 0; i <= n - k; ++i)
+    {
+        int currentUnfairness = arr[i + k - 1] - arr[i];
+        if (currentUnfairness < minUnfairness)
+        {
+            minUnfairness = currentUnfairness;
+        }
+    }
     
     return minUnfairness;
 }
@@ -55,7 +66,6 @@ int main()
 
     return 0;
 }
-
 
 string ltrim(const string &str) {
     string s(str);
