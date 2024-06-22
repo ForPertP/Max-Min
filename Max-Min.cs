@@ -24,6 +24,12 @@ class Result
      *  2. INTEGER_ARRAY arr
      */
 
+    public static int maxMin(int k, List<int> arr)
+    {
+        int minUnfairness = int.MaxValue;
+        
+        return minUnfairness;
+    }
 
 }
 
