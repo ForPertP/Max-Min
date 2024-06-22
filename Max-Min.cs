@@ -26,12 +26,23 @@ class Result
 
     public static int maxMin(int k, List<int> arr)
     {
+        arr.Sort();
+        int n = arr.Count;
         int minUnfairness = int.MaxValue;
+        
+        for (int i = 0; i <= n - k; ++i)
+        {
+            int currentUnfairness = arr[i + k - 1] - arr[i];
+            if (currentUnfairness < minUnfairness)
+            {
+                minUnfairness = currentUnfairness;
+            }
+        }
         
         return minUnfairness;
     }
-
 }
+
 
 class Solution
 {
