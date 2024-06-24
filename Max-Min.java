@@ -10,6 +10,34 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
+class Result {
+
+    /*
+     * Complete the 'maxMin' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER k
+     *  2. INTEGER_ARRAY arr
+     */
+
+    public static int maxMin(int k, List<Integer> arr) {
+        Collections.sort(arr);
+        int n = arr.size();
+        int minUnfairness = Integer.MAX_VALUE;
+        
+        for (int i = 0; i <= n - k; ++i) {
+            int currentUnfairness = arr.get(i + k - 1) - arr.get(i);
+            if (currentUnfairness < minUnfairness) {
+                minUnfairness = currentUnfairness;
+            }
+        }
+        
+        return minUnfairness;
+    }
+
+}
+
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
